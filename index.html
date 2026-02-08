@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cycle Tracker</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body>
+<div class="app">
+
+<h1>🌸 Cycle Tracker</h1>
+
+<div class="card">
+  <form id="cycleForm">
+    <label>
+      🩸 Last Period Start
+      <input type="date" id="lastPeriod">
+    </label>
+
+    <label>
+      🔁 Cycle Length (days)
+      <input type="number" id="cycleLength" value="28">
+    </label>
+
+    <label>
+      📅 Period Length (days)
+      <input type="number" id="periodLength" value="5">
+    </label>
+
+    <button type="submit">Save</button>
+  </form>
+</div>
+
+<div class="card stats" id="results"></div>
+
+<div class="nav">
+  <a href="calendar.html">🗓 Calendar</a> ·
+  <a href="settings.html">⚙️ Settings</a>
+</div>
+
+<script src="js/state.js"></script>
+<script src="js/cycle.js"></script>
+
+<script>
+document.getElementById("cycleForm").addEventListener("submit", e => {
+  e.preventDefault();
+
+  appState.lastPeriodStart = document.getElementById("lastPeriod").value;
+  appState.cycleLength = +document.getElementById("cycleLength").value;
+  appState.periodLength = +document.getElementById("periodLength").value;
+
+  saveState(appState);
+  renderResults();
+});
+
+function renderResults() {
+  if (!appState.lastPeriodStart) return;
+
+  const start = new Date(appState.lastPeriodStart);
+  const nextPeriod = predictNextPeriod(start, appState.cycleLength);
+  const ovulation = predictOvulation(nextPeriod);
+  const fertile = fertileWindow(ovulation);
+
+  document.getElementById("results").innerHTML = `
+    <div class="stat">🩸 <strong>Next Period:</strong> ${nextPeriod.toDateString()}</div>
+    <div class="stat">✨ <strong>Ovulation (est.):</strong> ${ovulation.toDateString()}</div>
+    <div class="stat">🌱 <strong>Fertile Window:</strong>
+      ${fertile.start.toDateString()} – ${fertile.end.toDateString()}
+    </div>
+  `;
+}
+
+/* 🔹 Call render first */
+renderResults();
+
+/* 🔹 THEN rehydrate the form fields */
+if (appState.lastPeriodStart) {
+  document.getElementById("lastPeriod").value = appState.lastPeriodStart;
+  document.getElementById("cycleLength").value = appState.cycleLength;
+  document.getElementById("periodLength").value = appState.periodLength;
+}
+</script>
+
+</div>
+</body>
+</html>

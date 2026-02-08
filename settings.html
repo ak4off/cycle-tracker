@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Settings</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app">
+
+<h1>⚙️ Settings</h1>
+
+<div class="card">
+  <h3>📆 Calendar Sync</h3>
+  <p style="color: var(--muted); font-size: 0.9rem;">
+    Sync predicted cycle dates to your Google Calendar.
+    This is one-way and fully optional.
+  </p>
+  <button onclick="syncToGoogleCalendar()">Sync to Google Calendar</button>
+  <!-- <button onclick="connectGoogleCalendar()">📆 Connect Google Calendar</button> -->
+
+</div>
+
+<div class="card">
+  <h3>🔒 Privacy</h3>
+  <p style="color: var(--muted); font-size: 0.9rem;">
+    All data is stored locally on your device.
+    You can delete everything at any time.
+  </p>
+  <button onclick="deleteData()" style="background:#ef4444">
+    🗑 Delete All Data
+  </button>
+</div>
+
+<div class="nav">
+  <a href="index.html">← Back</a>
+</div>
+
+<script src="js/state.js"></script>
+<script src="js/sync.js"></script>
+<script>
+function deleteData() {
+  localStorage.clear();
+  alert("All data deleted.");
+  location.href = "index.html";
+}
+</script>
+
+</div>
+</body>
+</html>
