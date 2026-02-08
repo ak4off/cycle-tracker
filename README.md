@@ -200,8 +200,5 @@ MIT License
 
 Built with the help of **ChatGPT (OpenAI)** for development guidance and debugging support.
 
-```
-
-
 
 
