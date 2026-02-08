@@ -1,5 +1,3 @@
-// // <!-- js/state.js -->
-// <script>
 const DEFAULT_STATE = {
   lastPeriodStart: null,
   cycleLength: 28,
@@ -16,4 +14,3 @@ function saveState(state) {
 }
 
 let appState = loadState();
-// </script>
