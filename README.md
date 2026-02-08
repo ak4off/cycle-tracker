@@ -27,6 +27,36 @@ A **privacy-first menstrual cycle tracking web app** that predicts upcoming peri
 - 🧹 One-click **delete all data**
 - ⚙ Explicit user consent for every sync action
 
+## 📖 How to Use
+
+### Using the Live App
+
+1. Open the [live app link](https://ak4off.github.io/cycle-tracker).
+2. Enter:
+   - **Last period start date**
+   - **Average cycle length**
+   - **Period length**
+3. Click **Save** to view:
+   - Your next predicted period
+   - Ovulation estimate
+   - Fertile window
+4. Open the **Calendar** tab to see a visual monthly view of your cycle.
+5. Go to **Settings** if you want reminders.
+
+### Syncing to Google Calendar (Optional)
+
+1. Open **Settings**.
+2. Click **Connect Google Calendar** and approve access.
+3. Choose what you want to sync:
+   - Period predictions
+   - Fertile window (optional)
+   - Ovulation estimate (optional)
+4. Click **Sync to Google Calendar**.
+
+Events will appear in **your own Google Calendar**.
+
+You can delete all stored data at any time from the Settings page.
+
 
 ## 🧠 How It Works
 
@@ -179,7 +209,14 @@ Predictions may vary and should not be used as a substitute for professional med
 * Build a useful, respectful health-related tool
 
 ---
+### Privacy Note
 
+- No account is required.
+- All cycle data stays on your device.
+- Calendar access is optional and one-way.
+- The app cannot read your Google Calendar.
+  
+---
 ## 🧩 Future Improvements (Optional)
 
 * Event deduplication & update handling
