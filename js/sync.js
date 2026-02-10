@@ -3,7 +3,9 @@
 ======================= */
 
 const CLIENT_ID = "297330410452-7o5rtp3li3sm7gdn8rqp12vrroikgg9b.apps.googleusercontent.com";
-const REDIRECT_URI = "http://127.0.0.1:5500/settings.html";
+// const REDIRECT_URI = "http://127.0.0.1:5500/settings.html";
+const REDIRECT_URI =
+  window.location.origin + "/cycle-tracker/settings.html";
 const SCOPES = "https://www.googleapis.com/auth/calendar.events";
 
 function connectGoogleCalendar() {
